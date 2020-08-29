@@ -1,0 +1,26 @@
+{
+  "name": "hot_restaurant_mini_project",
+  "version": "1.0.0",
+  "description": "Restaurant reservations",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LivesInRoom29/Hot_Restaurant_mini_project.git"
+  },
+  "author": "molly_kizer <molly.kizer@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LivesInRoom29/Hot_Restaurant_mini_project/issues"
+  },
+  "homepage": "https://github.com/LivesInRoom29/Hot_Restaurant_mini_project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
