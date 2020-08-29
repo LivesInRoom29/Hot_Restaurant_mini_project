@@ -8,7 +8,7 @@
 
     <!--Bootstrap and CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
     <!-- fount awesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
@@ -29,35 +29,64 @@
             <br>
             <div class="buttonsDiv text-center">
                 <a href="tables.html"><button class="btn btn-larg btn-primary">View Table</button></a>
-                <a href="home.html"><button class="btn btn-large btn-success">home</button></a>
+                <a href="home.html"><button class="btn btn-large btn-success"><span
+                            class="fa fa-home"></span></button></a>
             </div>
         </div>
         <form>
             <div class="form-group">
-              <label for="exampleInputName">Name</label>
-              <input type="name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter name">
+                <label for="exampleInputName">Name</label>
+                <input type="name" class="form-control" id="exampleInputName1" aria-describedby="nameHelp"
+                    placeholder="Enter name">
             </div>
             <div class="form-group">
                 <label for="exampleInputPhoneNumber">Phone Number</label>
-                <input type="phoneNumber" class="form-control" id="exampleInputPhoneNumber1" aria-describedby="phoneHelp" placeholder="Enter phone number">
-              </div>
-              <div class="form-group">
+                <input type="phoneNumber" class="form-control" id="exampleInputPhoneNumber1"
+                    aria-describedby="phoneHelp" placeholder="Enter phone number">
+            </div>
+            <div class="form-group">
                 <label for="exampleInputEmail">Email</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-              </div>
-              <div class="form-group">
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="Enter email">
+            </div>
+            <div class="form-group">
                 <label for="exampleInputId">Unique ID</label>
-                <input type="id" class="form-control" id="exampleInputID1" aria-describedby="idHelp" placeholder="Enter unique ID">
-              </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-          </form>
-          <br>
+                <input type="id" class="form-control" id="exampleInputID1" aria-describedby="idHelp"
+                    placeholder="Enter unique ID">
+            </div>
+            <button type="submit" class="btn btn-primary submitButton">Submit</button>
+        </form>
+        <br>
         <a href="#">API Table Link</a>
-         | 
+        |
         <a href="#">API Wait List Link</a>
     </div>
-
     <script>
+        let nameInput = $("#exampleInputName1");
+        let phoneInput = $("#exampleInputPhoneNumber1");
+        let emailInput = $("#exampleInputEmail1");
+        let idInput = $("#exampleInputID1");
+
+        let reservationArray = [];
+
+        $(".submitButton").on("click", function () {
+            let userName = nameInput.val().trim();
+            let phoneNumber = phoneInput.val().trim();
+            let emailIn = emailInput.val().trim();
+            let idIn = idInput.val().trim();
+
+            let userObject = {
+                name: userName,
+                phone: phoneNumber,
+                email: emailIn,
+                id: idIn
+            }
+
+            reservationArray.push(userObject);
+            console.log(reservationArray);
+        })
+
+
 
     </script>
 
