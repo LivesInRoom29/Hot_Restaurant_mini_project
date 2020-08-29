@@ -61,7 +61,9 @@
         |
         <a href="#">API Wait List Link</a>
     </div>
-    <script>
+
+
+    <script type="text/javascript">
         let nameInput = $("#exampleInputName1");
         let phoneInput = $("#exampleInputPhoneNumber1");
         let emailInput = $("#exampleInputEmail1");
@@ -69,7 +71,8 @@
 
         let reservationArray = [];
 
-        $(".submitButton").on("click", function () {
+        $(".submitButton").on("click", function (event) {
+            event.preventDefault();
             let userName = nameInput.val().trim();
             let phoneNumber = phoneInput.val().trim();
             let emailIn = emailInput.val().trim();
@@ -84,7 +87,23 @@
 
             reservationArray.push(userObject);
             console.log(reservationArray);
-        })
+        
+
+        $.post("/api/tables", userObject, function(data) {
+            if (data) {
+                alert("You have a reservation!");
+            }
+            else {
+                alert("There is no reservation :(");
+            }
+
+            userName.val("");
+            phoneNumber.val("");
+            emailIn.val("");
+            idIn.val("");
+        });
+
+    });
 
 
 
