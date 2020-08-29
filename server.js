@@ -2,8 +2,9 @@
 // =============================================================
 const express = require("express");
 const path = require("path");
-const tables = require('./classes/tables');
-const dummydata = require('./classes/dummydata')
+const { v4: uuidv4 } = require('uuid');// generates random id
+const Tables = require('./classes/tables');
+const dummydata = require('./classes/dummydata');
 
 const reservations = [];
 const tableArr = [];
@@ -48,7 +49,24 @@ app.get("/api/waitlist", function(req, res) {
 app.post("/api/reserve", (req, res) => {
     // send reservation data
     console.log(req.body);
-    res.send(req.body);
+   // res.send(req.body);
+    const { name, phone, email } = req.body;
+    const newTable = new Tables(name, phone, email, uuidv4());
+
+    if (tableArr.length >= 5) {
+        // create instance of Table clas and add to waitlist arr
+
+        waitlist.push(newTable);
+        console.log(newTable);
+
+        res.send("You are on the waitlist for a table.");
+
+    } else {
+        // create new instance of Tables class with req.body.name, etc and add to tables array
+        tableArr.push(newTable);
+        // send back message
+        res.send("Your reservation was successful. You now have a table ready for you.")
+    }
 })
 
 // Create New Characters - takes in JSON input
