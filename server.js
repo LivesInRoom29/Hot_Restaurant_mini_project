@@ -45,10 +45,10 @@ app.get("/api/waitlist", function(req, res) {
     return res.json(waitlist);
 });
 
-app.post("api/reserve", (req, res) => {
-    const newTable = dummydata.table1;
-
-    console.log(newTable);
+app.post("/api/reserve", (req, res) => {
+    // send reservation data
+    console.log(req.body);
+    res.send(req.body);
 })
 
 // Create New Characters - takes in JSON input
