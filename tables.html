@@ -23,10 +23,12 @@
             <div class="jumbotron">
                 <h1 class="text-center"><span class="fa fa-fire"></span> Hot Restaurant</h1> 
                 <hr>
-                <h2 class="text-center">Make Your Reservations Here!</h2>
+                <h2 class="text-center">Current Reservations and Waiting List</h2>
                 <br>
-                <a href="home.html"><button>Go back</button></a>   
-                <a href="tables.html"><button>Get a table</button></a> 
+                <div class="text-center">
+                <a href="home.html"><button class="btn-primary btn-lg">Home</button></a>   
+                <a href="reserve.html"><button class="btn-primary btn-lg">Make Reservations</button></a> 
+                </div>
             </div>
 
             <div class="row">
@@ -43,6 +45,27 @@
                 </div>
 
             </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Waiting List</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul id="tables"></ul>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <a href="#">Clear Table</a>
+            |
+            <a href="#">API Table Link</a>
+            | 
+           <a href="#">API Wait List Link</a>
             
         
     </div>
