@@ -2,10 +2,11 @@
 // =============================================================
 const express = require("express");
 const path = require("path");
-const Tables = require('./classes/tables');
+const tables = require('./classes/tables');
+const dummydata = require('./classes/dummydata')
 
 const reservations = [];
-const tables = [];
+const tableArr = [];
 const waitlist = [];
 
 // Sets up the Express App
@@ -36,7 +37,7 @@ app.get('/reserve', (req, res) => {
 
 // Displays all tables
 app.get("/api/tables", function(req, res) {
-    return res.json(tables);
+    return res.json(tableArr);
 });
 
 // Displays waitlist
@@ -44,10 +45,32 @@ app.get("/api/waitlist", function(req, res) {
     return res.json(waitlist);
 });
 
+app.post("api/reserve", (req, res) => {
+    const newTable = dummydata.table1;
+
+    console.log(newTable);
+})
+
+// Create New Characters - takes in JSON input
+// app.post("/api/characters", function(req, res) {
+//     // req.body hosts is equal to the JSON post sent from the user
+//     // This works because of our body parsing middleware
+//     var newCharacter = req.body;
+
+//     // Using a RegEx Pattern to remove spaces from newCharacter
+//     // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+//     newCharacter.routeName = newCharacter.name.replace(/\s+/g, "").toLowerCase();
+
+//     console.log(newCharacter);
+
+//     characters.push(newCharacter);
+
+//     res.json(newCharacter);
+//   });
 
 
 // Starts the server to begin listening
 // =============================================================
 app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
-  });
+});
