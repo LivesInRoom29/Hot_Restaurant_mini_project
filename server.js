@@ -21,7 +21,7 @@ app.use(express.json());
 
 app.get('/', (req, res) => {
     // sends index/homepage
-    res.sendFile(path.join(__dirname, "index.html"));
+    res.sendFile(path.join(__dirname, "home.html"));
 });
 
 app.get('/tables', (req, res) => {
