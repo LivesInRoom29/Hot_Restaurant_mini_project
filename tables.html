@@ -53,7 +53,7 @@
                             <h4>Waiting List</h4>
                         </div>
                         <div class="card-body">
-                            <ul id="tables"></ul>
+                            <ul id="waitlist"></ul>
                         </div>
                     </div>
 
@@ -70,8 +70,50 @@
         
     </div>
 
-    <script>
+    <script type="text/javascript">
 
+    const makeTable = () => {
+        $.ajax({
+            url: "/api/tables", 
+            method: "GET",
+            
+        })
+        .then(function(tData) {
+            console.log(tData);
+            console.log('------');
+            for (let i = 0; i < tData.length; i++) {
+                let tList = $('#tables');
+                let lItem = $('<li class="mt-4">')
+                    lItem.append(
+                        $('<h2>').text(`Table Number ${i + 1}`),
+                        $('<hr>'),
+                        //this code could change with tData
+                        $('<h2>').text(`id ${tData[i].id}`),
+                        $('<h2>').text(`name ${tData[i].name}`),
+                        $('<h2>').text(`email ${tData[i].email}`),
+                        $('<h2>').text(`phone ${tData[i].phoneNumber}`)
+                        
+                    );
+                    tList.append(lItem);
+            }
+
+        });
+    }
+    function clearTables () {
+        alert('clearing');
+        $.ajax({
+            url: "/api/clear",
+            method: "POST"
+        }).then(function() {
+            $("#waitlist").empty();
+            $("#tables").empty();
+        });
+
+    }
+    $("#clear").on("click", clearTables);
+    makeTable();
+    //we believe there should be another function that uses waitlist data
+ 
     </script>
     
 </body>
