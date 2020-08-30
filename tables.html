@@ -87,14 +87,33 @@
                     lItem.append(
                         $('<h2>').text(`Table Number ${i + 1}`),
                         $('<hr>'),
-                        $('<h2>').text(`id ${tData[i].id}`)
-
-
+                        //this code could change with tData
+                        $('<h2>').text(`id ${tData[i].id}`),
+                        $('<h2>').text(`name ${tData[i].name}`),
+                        $('<h2>').text(`email ${tData[i].email}`),
+                        $('<h2>').text(`phone ${tData[i].phoneNumber}`)
+                        
                     );
+                    tList.append(lItem);
             }
-        })
-    }
 
+        });
+    }
+    function clearTables () {
+        alert('clearing');
+        $.ajax({
+            url: "/api/clear",
+            method: "POST"
+        }).then(function() {
+            $("#waitlist").empty();
+            $("#tables").empty();
+        });
+
+    }
+    $("#clear").on("click", clearTables);
+    makeTable();
+    //we believe there should be another function that uses waitlist data
+ 
     </script>
     
 </body>
