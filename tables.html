@@ -10,7 +10,7 @@
     <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
     <!-- fount awesome -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-   
+
     <!--jQuery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -21,13 +21,13 @@
 
     <div class="container">
             <div class="jumbotron">
-                <h1 class="text-center"><span class="fa fa-fire"></span> Hot Restaurant</h1> 
+                <h1 class="text-center"><span class="fa fa-fire"></span> Hot Restaurant</h1>
                 <hr>
                 <h2 class="text-center">Current Reservations and Waiting List</h2>
                 <br>
                 <div class="text-center">
-                <a href="home.html"><button class="btn-primary btn-lg">Home</button></a>   
-                <a href="reserve.html"><button class="btn-primary btn-lg">Make Reservations</button></a> 
+                <a href="/"><button class="btn-primary btn-lg">Home</button></a>
+                <a href="/reserve"><button class="btn-primary btn-lg">Make Reservations</button></a>
                 </div>
             </div>
 
@@ -63,20 +63,20 @@
 
             <a href="#">Clear Table</a>
             |
-            <a href="#">API Table Link</a>
-            | 
-           <a href="#">API Wait List Link</a>
-            
-        
+            <a href="/api/tables">API Table Link</a>
+            |
+           <a href="/api/waitlist">API Wait List Link</a>
+
+
     </div>
 
     <script type="text/javascript">
 
     const makeTable = () => {
         $.ajax({
-            url: "/api/tables", 
+            url: "/api/tables",
             method: "GET",
-            
+
         })
         .then(function(tData) {
             console.log(tData);
@@ -92,7 +92,7 @@
                         $('<h2>').text(`name ${tData[i].name}`),
                         $('<h2>').text(`email ${tData[i].email}`),
                         $('<h2>').text(`phone ${tData[i].phoneNumber}`)
-                        
+
                     );
                     tList.append(lItem);
             }
@@ -113,8 +113,8 @@
     $("#clear").on("click", clearTables);
     makeTable();
     //we believe there should be another function that uses waitlist data
- 
+
     </script>
-    
+
 </body>
 </html>
